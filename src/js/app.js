@@ -13,8 +13,10 @@ export default class App {
   //   return this.result;
   // }
 
-  async makeExchange(target_code, amount) {
+  async makeExchange(target_code) {
     let askCurrency = await Exchanger.getCurrency(target_code, amount);
-    let exchange = this.usd * 
+    let rateCurrency = askCurrency.conversion_rate;
+    this.result = this.usd * rateCurrency;
+    return this.result;
   }
 }

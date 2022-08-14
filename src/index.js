@@ -2,7 +2,7 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import Exchanger from './js/exchanger.js';
-import App from './js/app.js';
+//import App from './js/app.js';
 
 async function getCurrency(target_code) {
   const response = await Exchanger.getCurrency(target_code);
@@ -18,7 +18,7 @@ function printElements(response, target_code) {
 }
 
 function printError(error, target_code) {
-  document.querySelector('#showResponse').innerText = `There was an error accessing the weather data for ${id}: 
+  document.querySelector('#showResponse').innerText = `There was an error accessing the weather data for ${target_code}: 
   ${error}.`;
 }
 
