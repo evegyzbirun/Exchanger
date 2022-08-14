@@ -2,7 +2,7 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import Exchanger from './js/exchanger.js';
-//import App from './js/app.js';
+import App from './js/app.js';
 
 async function getCurrency(target_code) {
   const response = await Exchanger.getCurrency(target_code);
