@@ -1,7 +1,6 @@
 {
-  "name": "crypro-app",
+  "name": "currency-app",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode=development",
@@ -10,7 +9,7 @@
     "test": "jest --coverage"
   },
   "keywords": [],
-  "author": "Bryce Bresnan <bryce.bresnan@gmail.com> , Evegy Zbirun <evegyzbirun@users.noreply.github.com>, Kasidit Srisawat <paulkasidit@gmail.com>",
+  "author": "Evgeny Zbirun <zbirunzbirun@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.18.6",
@@ -31,5 +30,6 @@
   },
   "dependencies": {
     "bootstrap": "^4.5.3"
-  }
+  },
+  "description": ""
 }
