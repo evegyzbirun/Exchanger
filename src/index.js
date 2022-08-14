@@ -12,9 +12,9 @@ async function getCurrency(target_code) {
     printError(response);
   }
 }
-
+//
 function printElements(response, target_code) {
-  document.querySelector("tradeRate").innerText = `USD amount ${amount} and ${target_code} is ${conversion_result}`
+  document.querySelector("tradeRate").innerText = `USD ${target_code} is ${response.conversion_result}`
 }
 
 function printError(error, target_code) {
