@@ -14,7 +14,8 @@ async function getCurrency(target_code) {
 }
 //
 function printElements(response, target_code) {
-  document.querySelector("tradeRate").innerText = `USD ${target_code} is ${response.conversion_result}`
+  let result = App.makeExchange(this.result);
+  document.querySelector("tradeRate").innerText = `USD to ${target_code} is ${response.result}`
 }
 
 function printError(error, target_code) {

@@ -14,7 +14,7 @@ export default class App {
   // }
 
   async makeExchange(target_code) {
-    let askCurrency = await Exchanger.getCurrency(target_code, amount);
+    let askCurrency = await Exchanger.getCurrency(target_code);
     let rateCurrency = askCurrency.conversion_rate;
     this.result = this.usd * rateCurrency;
     return this.result;
