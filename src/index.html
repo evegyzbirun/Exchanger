@@ -10,12 +10,12 @@
     <form>
       <label for="id">Enter an amount of U.S. dollars:</label>
       <input type="number" required id="fundAmount" name="fundAmount">
-      <select name="currencyID" id="currencyID">
-        <option value=""></option>
-        <option value=""></option>
-
+      <label for="id">Enter a Currency ID:</label>
+      <input id="id" type="text" name="id" required>
+      <button type="submit" class="btn-success" id="cryptoSubmit">Get current rate!</button>
     </form>
-    <p id="showResponse"></p>
+    <h3>Your USA rate is:<p id="tradeRate"></p>
+    </h3>
   </div>
 </body>
 
