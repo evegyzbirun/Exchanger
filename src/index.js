@@ -2,31 +2,31 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import Exchanger from './js/exchanger.js';
-import App from './js/app.js';
 
-async function getCurrency(target_code) {
-  const response = await Exchanger.getCurrency(target_code);
-  if (response) {
-    printElements(response, target_code);
-  } else {
-    printError(response);
+async function getCurrency(target_code, amount) {
+  try {
+    const response = await fetch(`https://v6.exchangerate-api.com/v6/e70794b498b5310ad96c3edd/pair/USD/${target_code}/${amount}`);
+    const jsonifiedResponse = await response.json();
+    console.log("Hi", jsonifiedResponse.conversion_result);
+    if (!response.ok) {
+      const errorMessage = `${response.status} ${response.statusText} ${jsonifiedResponse.message}`;
+      throw new Error(errorMessage);
+    }
+    return jsonifiedResponse;
+  } catch (error) {
+    return error;
+
   }
 }
-//
-function printElements(response, target_code) {
-  document.querySelector("tradeRate").innerText = `USD to ${target_code} is ${response.result}`
-}
-
-function printError(error, target_code) {
-  document.querySelector('#showResponse').innerText = `There was an error accessing the weather data for ${target_code}: 
-  ${error}.`;
-}
-
 function handleFormSubmission(event) {
   event.preventDefault();
   const cyrrencyId = document.querySelector('#id').value.toUpperCase();
+  const amountInput = document.querySelector('#fundAmount').value;
+  let myExchanger = new Exchanger(amountInput);
+  console.log(myExchanger)
+  console.log(amountInput);
   document.querySelector('#id').value = null;
-  getCurrency(cyrrencyId);
+  console.log(getCurrency(cyrrencyId, myExchanger.amount));
 }
 
 window.addEventListener("load", function () {

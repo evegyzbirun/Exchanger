@@ -1,16 +1,22 @@
 export default class Exchanger {
-  static async getCurrency(target_code) {
-    try {
-      const response = await fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/USD/${target_code}/${amount}`);
-      const jsonifiedResponse = await response.json();
-      if (!response.ok) {
-        const errorMessage = `${response.status} ${response.statusText} ${jsonifiedResponse.message}`;
-        throw new Error(errorMessage);
-      }
-      return jsonifiedResponse;
-    } catch (error) {
-      return error;
-
-    }
+  constructor(amount) {
+    this.amount = amount;
+    this.result = 0;
   }
+
+  // static async getCurrency(target_code) {
+  //   try {
+  //     const response = await fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/USD/${target_code}/100`);
+  //     console.log(response);
+  //     const jsonifiedResponse = await response.json();
+  //     if (!response.ok) {
+  //       const errorMessage = `${response.status} ${response.statusText} ${jsonifiedResponse.message}`;
+  //       throw new Error(errorMessage);
+  //     }
+  //     return jsonifiedResponse;
+  //   } catch (error) {
+  //     return error;
+
+  //   }
+  // }
 }
