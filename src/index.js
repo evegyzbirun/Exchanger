@@ -14,7 +14,7 @@ async function getCurrency(target_code, amount) {
     }
     return jsonifiedResponse;
   } catch (error) {
-    document.querySelector('#tradeRate').innerText = `${error}, wrong currency input`;
+    document.querySelector('#tradeRate').innerText = `${error.error_type} wrong currency entered`;
     return error;
   }
 }
