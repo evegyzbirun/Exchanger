@@ -5,7 +5,7 @@ import Exchanger from './js/exchanger.js';
 
 async function getCurrency(target_code, amount) {
   try {
-    const response = await fetch(`https://v6.exchangerate-api.com/v6/${API_KEY}/pair/USD/${target_code}/${amount}`);
+    const response = await fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/USD/${target_code}/${amount}`);
     const jsonifiedResponse = await response.json();
     document.querySelector('#tradeRate').innerText = `${amount}$ of USD is ${target_code}: ${jsonifiedResponse.conversion_result}`;
     if (!response.ok) {
@@ -14,15 +14,12 @@ async function getCurrency(target_code, amount) {
     }
     return jsonifiedResponse;
   } catch (error) {
-    document.querySelector('#tradeRate').innerText = `${error.error_type} wrong currency entered`;
+    document.querySelector('#tradeRate').innerText = `${error["error-type"]} wrong currency entered`;
+    console.log(error);
     return error;
   }
 }
 
-// function printError(error, target_code) {
-//   document.querySelector('#tradeRate').innerText = `There was an error accessing the currency data for ${target_code}: 
-//   ${error}.`;
-// }
 
 function handleFormSubmission(event) {
   event.preventDefault();
