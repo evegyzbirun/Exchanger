@@ -5,7 +5,7 @@ import Exchanger from './js/exchanger.js';
 
 async function getCurrency(target_code, amount) {
   try {
-    const response = await fetch(`https://v6.exchangerate-api.com/v6/e70794b498b5310ad96c3edd/pair/USD/${target_code}/${amount}`);
+    const response = await fetch(`https://v6.exchangerate-api.com/v6/${API_KEY}/pair/USD/${target_code}/${amount}`);
     const jsonifiedResponse = await response.json();
     document.querySelector('#tradeRate').innerText = `${amount}$ of USD is ${target_code}: ${jsonifiedResponse.conversion_result}`;
     if (!response.ok) {
